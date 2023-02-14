@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Text, StyleSheet, View } from "react-native";
 import { WebView } from 'react-native-webview';
 import html_script from '../mapa_html';
+import Hhtml_script from '../leafletMap';
 
 export function Mapa() {
   //return(
@@ -12,7 +13,7 @@ export function Mapa() {
 
  return(
   
-    <WebView source={{html: html_script}} style={style.Webview}/>
+    <WebView source={{html: Hhtml_script}} style={style.Webview}/>
  );
 }
 
