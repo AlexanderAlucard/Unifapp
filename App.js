@@ -8,6 +8,7 @@ import { Noticias } from './Pages/Noticias';
 import { Mapa } from './Pages/Mapas';
 
 
+
 const Menu = createDrawerNavigator()
 
 
