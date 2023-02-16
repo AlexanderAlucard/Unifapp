@@ -19,7 +19,9 @@ integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg="
 crossorigin=""></script>
 
 <style>
+
 #map { height: 650px; }
+
 </style>
 
 <main>
@@ -30,15 +32,31 @@ crossorigin=""></script>
 const map = L.map('map'); 
 
 // Initializes map
-map.setView([-0.002893, -51.083855], 19); 
+map.setView([-0.002893, -51.083855], 18); 
 
 // Sets initial coordinates and zoom level
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-maxZoom: 20,
+maxZoom: 19,
 attribution: '© <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map); 
 
+var popup = L.popup()
+    .setLatLng([-0.002893, -51.083855])
+    .setContent("Teste do popup.")
+    .openOn(map);
 
+
+    function onMapClick(e) {
+      popup
+          .setLatLng(e.latlng)
+          .setContent("You clicked the map at " + e.latlng.toString())
+          .openOn(map);
+  }
+    
+  
+  map.on('click', onMapClick);
+
+  L.marker([-0.002944, -51.084273]).addTo(map).bindPopup("I am a green leaf.");
 </script>
   
 </body>
