@@ -41,22 +41,29 @@ attribution: '© <a href="http://www.openstreetmap.org/copyright">OpenStreetMap<
 }).addTo(map); 
 
 var popup = L.popup()
-    .setLatLng([-0.002893, -51.083855])
+    .setLatLng([-0.002131, -51.083816])
     .setContent("Teste do popup.")
     .openOn(map);
 
 
     function onMapClick(e) {
-      popup
+      marker
           .setLatLng(e.latlng)
           .setContent("You clicked the map at " + e.latlng.toString())
-          .openOn(map);
+          .addTo(map);
   }
     
+  function addMarker(e) {
+    L.marker(e.latlng)
+      .addTo(map)
+      .bindPopup("Teste <br> <input type= 'text' > ");
+  }
   
-  map.on('click', onMapClick);
+  map.on('click', addMarker);
 
-  L.marker([-0.002944, -51.084273]).addTo(map).bindPopup("I am a green leaf.");
+  L.marker([-0.002944, -51.084273]).addTo(map).bindPopup("Bloco de computação");
+  
+  
 </script>
   
 </body>
